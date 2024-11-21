@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Programacion III</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.10.1/bootstrap-table.min.js"></script>
+    <style>
+        #misdatos {
+            text-align: center;
+            padding-bottom: 10px;
+            color: #4CAF50;
+        }
+        body { font-family: Arial, sans-serif; background-color: #000000; color: #ffffff; } table { width: 100%; border-collapse: collapse; margin: 20px 0; color: #ffffff; } th, td { border: 1px solid #00FF00; padding: 8px; text-align: left; } th { background-color: #4CAF50; color: white; } .imagen { cursor: pointer; margin: 5px; } #misdatos { text-align: center; padding-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <!-- Elementos de HTML-->
+    <div id="misdatos">
+        <h1>Musify</h1><img src="https://th.bing.com/th/id/R.00934593b99f81059223c5495ae75285?rik=tOtmFocigxdciA&riu=http%3a%2f%2fwww.newdesignfile.com%2fpostpic%2f2015%2f12%2fgreen-play-icon_366695.png&ehk=f7qsx6EElQ8bv3BdOe0b%2b9yDm5D2jsn%2bdmVmqTjEng4%3d&risl=&pid=ImgRaw&r=0" alt="Musify" width="100">
+    </div>
+    <hr>
+
+    <div id="misdatos">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/41/%C3%93scar_Maydon_and_Fuerza_Regida_-_Tu_Boda.png/220px-%C3%93scar_Maydon_and_Fuerza_Regida_-_Tu_Boda.png" alt="tu boda fuerza regida y oscar maydon" width="100" style="cursor: pointer;" onclick="agregarCancion1()">
+        <img src="https://images.genius.com/7527f4c4a8664489809bfb446057846d.1000x1000x1.png" alt="el lokeron" width="100" style="cursor: pointer;" onclick="agregarCancion2()">
+        <img src="https://i1.sndcdn.com/artworks-OxP5JDVGtQrogdWe-iiQxJw-t500x500.jpg" alt="malas decisiones" width="100" style="cursor: pointer;" onclick="agregarCancion3()">
+        <img src="https://i.scdn.co/image/ab67616d0000b2730c7d8f2356c994c328e5d639" alt="que maldicion" width="100" style="cursor: pointer;" onclick="agregarCancion4()">
+        <img src="https://i.scdn.co/image/6c3553c1aea191901a34c69f929280152c10f1d9" alt="outside" width="100" style="cursor: pointer;" onclick="agregarCancion5()">
+        <img src="https://cdn-images.dzcdn.net/images/cover/4d598f22b2016e8d4acf87160bff0e91/200x200.jpg" alt="gracias a ti" width="100" style="cursor: pointer;" onclick="agregarCancion6()">
+    </div>
+
+    <div class="container">
+        <table id="tabla" data-height="460" data-auto-refresh="true">
+            <thead>
+                <tr>
+                    <th data-field="N">Nombre</th>
+                    <th data-field="A">Artista</th>
+                    <th data-field="G">Genero</th>
+                    <th data-field="D">Duracion</th>
+                    <th data-field="I">Imagen</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    <div id="misdatos">
+        <h1>BRUNO ALBERTO HERRERA IZARRARAZ</h1>    
+        <h1>21/11/24</h1>
+        <h1>programacion III</h1>
+        <h1>bruno.herrera2692@alumnos.udg.mx</h1>
+        <h1>ESCUELA PREPARATORIA SAN JOSE DEL VALLE</h1>
+        <h1>Proyecto Final: Mi Musify</h1>
+        <h1>ANGEL EMMANUEL SANCHEZ CUENCA</h1>
+        <h1>Copyright © Todos los derechos reservados</h1>
+    </div>
+</body>
+<script>
+    /* JavaScript */
+    $(function () {
+        $('#tabla').bootstrapTable({
+            data: datos,
+            formatNoMatches: function () {
+                return 'No hay datos';
+            }
+        });
+    });
+
+    var datos = [];
+
+    function muestraDatos(){
+        $('#tabla').bootstrapTable('load', datos);
+    }
+
+    function agregarCancion1() {
+        var cancion = {
+            N: "Tu Boda",
+            A: "Fuerza Regida & Oscar Maydon",
+            G: "Regional Mexicano",
+            D: "3:20",
+            I: "<img width='50' src='https://www.billboard.com/wp-content/uploads/2024/11/Oscar-Maydon-Fuerza-Regida-press-credit-Street-Mob-Records-2024-billboard-espanol-1548.jpg?w=942&h=623&crop=1&resize=942%2C623'>"
+        };
+        datos.push(cancion);
+        muestraDatos();
+    }
+
+    function agregarCancion2() {
+        var cancion = {
+            N: "El Lokeron",
+            A: "tito doble p",
+            G: "Regional Mexicano",
+            D: "3:15",
+            I: "<img width='50' src='https://i.scdn.co/image/ab6761610000e5eb55cd7a947156364649bd657b'>"
+        };
+        datos.push(cancion);
+        muestraDatos();
+    }
+
+    function agregarCancion3() {
+        var cancion = {
+            N: "Malas Decisiones",
+            A: "kenia os",
+            G: "electronica",
+            D: "3:10",
+            I: "<img width='50' src='https://avatars.cloudflare.steamstatic.com/5baed78237719335ab3d16dacd70c6ece0ad818e_full.jpg'>"
+        };
+        datos.push(cancion);
+        muestraDatos();
+    }
+
+    function agregarCancion4() {
+        var cancion = {
+            N: "Que Maldicion",
+            A: "Banda MS & Snoop Dogg",
+            G: "Banda",
+            D: "3:00",
+            I: "<img width='50' src='https://lacarteleramx.com/wp-content/uploads/2020/05/banda-ms-snoop-dogg-28042020.jpg'>"
+        };
+        datos.push(cancion);
+        muestraDatos();
+    }
+
+    function agregarCancion5() {
+        var cancion = {
+            N: "Outside",
+            A: "Calvin Harris & Ellie Goulding",
+            G: "Electrónica",
+            D: "4:00",
+            I: "<img width='50' src='https://th.bing.com/th/id/R.efc73a28e331c50a11369871d2ed37a1?rik=w6LQjYIM7A6bCw&riu=http%3a%2f%2fmedia2.popsugar-assets.com%2ffiles%2fthumbor%2f1UmWpDUmujsV5bQiycN9BO_vePQ%2ffit-in%2f1024x1024%2ffilters%3aformat_auto-!!-%3astrip_icc-!!-%2f2016%2f09%2f06%2f058%2fn%2f1922398%2f97c68328572f87ed_GettyImages-599737078_master%2fi%2fCalvin-Harris-Ellie-Goulding-GQ-Awards-September-2016.jpg&ehk=yT8HZCLOgKRulJtVmP4lrNRejMX5mIUujm28QNZO8PQ%3d&risl=&pid=ImgRaw&r=0'>"
+        };
+        datos.push(cancion);
+        muestraDatos();
+    }
+
+    function agregarCancion6() {
+        var cancion = {
+            N: "gracias a ti",
+            A: "eslabon armado",
+            G: "regional mexicano",
+            D: "3:35",
+            I: "<img width='50' src='https://www.diariodequeretaro.com.mx/incoming/tg8nl9-eslabon-armado.jfif/ALTERNATES/LANDSCAPE_1140/Eslab%C3%B3n%20Armado.jfif'>"
+        };
+        datos.push(cancion);
+        muestraDatos();
+    }
+
+</script>
+</html>
+
+    
+    
